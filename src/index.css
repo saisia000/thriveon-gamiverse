@@ -1,0 +1,400 @@
+@import url('https://fonts.cdnfonts.com/css/toxigenesis');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;700&family=Press+Start+2P&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 174 77% 56%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 13 93% 66%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 174 77% 56%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 13 93% 66%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Toxigenesis', 'Orbitron', 'Exo 2', 'Press Start 2P', monospace !important;
+    font-weight: 400 !important;
+  }
+
+  /* Light mode specific styles */
+  :root:not(.dark) {
+    --hero-bg: linear-gradient(to bottom, #f1f5f9, #e2e8f0, #f1f5f9);
+  }
+
+  .dark {
+    --hero-bg: linear-gradient(to bottom, #0f172a, #1e293b, #0f172a);
+  }
+}
+
+/* Gaming font classes */
+@layer utilities {
+  * {
+    font-family: 'Toxigenesis', 'Orbitron', 'Exo 2', 'Press Start 2P', monospace !important;
+    font-weight: 400 !important;
+  }
+
+  .gaming-font {
+    font-family: 'Toxigenesis', 'Orbitron', 'Exo 2', monospace !important;
+  }
+
+  .gaming-title {
+    font-family: 'Toxigenesis', 'Orbitron', monospace !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em;
+  }
+
+  /* Remove heavy font weights */
+  .font-bold,
+  .font-semibold,
+  .font-medium {
+    font-weight: 400 !important;
+  }
+
+  /* Light mode utilities */
+  .light\:from-slate-100:not(.dark) {
+    --tw-gradient-from: #f1f5f9;
+  }
+
+  .light\:via-slate-200:not(.dark) {
+    --tw-gradient-via: #e2e8f0;
+  }
+
+  .light\:to-slate-100:not(.dark) {
+    --tw-gradient-to: #f1f5f9;
+  }
+
+  .light\:text-slate-800:not(.dark) {
+    color: #1e293b;
+  }
+
+  .light\:text-slate-600:not(.dark) {
+    color: #475569;
+  }
+
+  .light\:text-primary:not(.dark) {
+    color: hsl(var(--primary));
+  }
+}
+
+/* Gaming and magical styles */
+@layer components {
+  .gaming-widget {
+    @apply bg-gradient-to-br from-card/90 to-card/50 backdrop-blur-sm border border-primary/20 shadow-lg transition-all duration-300;
+    box-shadow: 0 4px 20px rgba(64, 224, 208, 0.1), 0 0 0 1px rgba(64, 224, 208, 0.1);
+  }
+
+  .gaming-widget:hover {
+    @apply shadow-xl border-primary/40;
+    box-shadow: 0 8px 32px rgba(64, 224, 208, 0.2), 0 0 0 1px rgba(64, 224, 208, 0.2);
+  }
+
+  .magical-btn {
+    @apply bg-gradient-to-r from-primary to-secondary text-white transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95;
+    box-shadow: 0 4px 15px rgba(64, 224, 208, 0.3);
+  }
+
+  .magical-btn:hover {
+    box-shadow: 0 8px 25px rgba(64, 224, 208, 0.4), 0 0 20px rgba(255, 107, 53, 0.3);
+  }
+
+  .testimonial-bubble {
+    @apply gaming-widget p-8 rounded-3xl transition-all duration-300;
+  }
+
+  .testimonial-bubble:hover {
+    @apply transform -translate-y-2 shadow-2xl;
+    box-shadow: 0 20px 40px rgba(64, 224, 208, 0.15);
+  }
+
+  /* Enhanced THRIVEON Strong Glow Effect with Stronger Text Stroke */
+  .thriveon-strong-glow {
+    animation: thriveon-strong-glow 2.5s ease-in-out infinite;
+    -webkit-text-stroke: 3px rgba(30, 41, 59, 0.9);
+    text-stroke: 3px rgba(30, 41, 59, 0.9);
+    text-shadow:
+      0 0 5px rgba(64, 224, 208, 0.8),
+      0 0 10px rgba(64, 224, 208, 0.6),
+      0 0 15px rgba(64, 224, 208, 0.4),
+      0 0 20px rgba(255, 107, 53, 0.3);
+  }
+
+  .dark .thriveon-strong-glow {
+    -webkit-text-stroke: 3px rgba(64, 224, 208, 0.8);
+    text-stroke: 3px rgba(64, 224, 208, 0.8);
+  }
+
+  @keyframes thriveon-strong-glow {
+
+    0%,
+    100% {
+      text-shadow:
+        0 0 8px rgba(64, 224, 208, 0.9),
+        0 0 16px rgba(64, 224, 208, 0.7),
+        0 0 24px rgba(64, 224, 208, 0.5),
+        0 0 32px rgba(255, 107, 53, 0.4);
+    }
+
+    50% {
+      text-shadow:
+        0 0 12px rgba(64, 224, 208, 1),
+        0 0 24px rgba(64, 224, 208, 0.9),
+        0 0 36px rgba(64, 224, 208, 0.7),
+        0 0 48px rgba(255, 107, 53, 0.6);
+    }
+  }
+
+  .invisible-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, #fff 0%, #0ff 40%, transparent 80%);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: sparkle-trail 1.2s ease-in-out forwards;
+  }
+
+  .invisible-star.active {
+    opacity: 1;
+    animation: sparkle-trail 1.2s ease-in-out forwards;
+    box-shadow:
+      0 0 4px #0ff,
+      0 0 6px #0ff,
+      0 0 8px #0ff,
+      0 0 10px #0ff;
+  }
+
+  .invisible-star.secondary {
+    background: radial-gradient(circle, #fff 0%, #ff6b35 40%, transparent 80%);
+  }
+
+  .invisible-star.secondary.active {
+    box-shadow:
+      0 0 4px #ff6b35,
+      0 0 6px #ff6b35,
+      0 0 8px #ff6b35,
+      0 0 10px #ff6b35;
+    animation: sparkle-trail 1.2s ease-in-out forwards;
+  }
+
+
+  @keyframes magical-twinkle {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+
+    50% {
+      opacity: 0.7;
+      transform: scale(1.8);
+    }
+  }
+
+  /* Star Field Effects */
+  .star-container:hover .star-hover {
+    opacity: 0.4 !important;
+    transition: opacity 0.8s ease-in-out;
+  }
+
+  .star-base {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .star-hover {
+    transition: opacity 0.8s ease-in-out;
+  }
+
+  .star-container:hover .star-base {
+    opacity: 0.8 !important;
+  }
+
+  /* Widget Pop Effect */
+  .widget-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .widget-hover:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(64, 224, 208, 0.2), 0 0 20px rgba(255, 107, 53, 0.1);
+  }
+
+  /* Enhanced magical animations */
+  .animate-float-gentle {
+    animation: float-gentle 4s ease-in-out infinite;
+  }
+
+  @keyframes float-gentle {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-8px) rotate(1deg);
+    }
+  }
+
+  .animate-magical-glow {
+    animation: magical-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes magical-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(64, 224, 208, 0.3), 0 0 40px rgba(64, 224, 208, 0.1);
+    }
+
+    50% {
+      box-shadow: 0 0 30px rgba(64, 224, 208, 0.5), 0 0 60px rgba(255, 107, 53, 0.2);
+    }
+  }
+
+  /* Interactive hover effects */
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    @apply transform -translate-y-2 shadow-xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(64, 224, 208, 0.4), 0 0 40px rgba(255, 107, 53, 0.2);
+  }
+}
+
+@keyframes sparkle-trail {
+  0% {
+    transform: scale(0.4) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1) translateY(-6px) rotate(5deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(0.2) translateY(-12px) rotate(-3deg);
+    opacity: 0;
+  }
+}
+
+.sparkle-cluster {
+  position: absolute;
+  pointer-events: none;
+  font-family: 'Toxigenesis', 'Orbitron', sans-serif;
+  animation: sparkle-pop 1s ease-in-out forwards;
+  opacity: 0.9;
+  transform: scale(1) rotate(0deg);
+}
+
+@keyframes sparkle-pop {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.4) rotate(10deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+}
+
+.invisible-star-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.invisible-star {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: sparkle-fade 1.2s ease-out forwards;
+  white-space: pre;
+  user-select: none;
+  pointer-events: none;
+  font-family: "Courier New", monospace;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+@keyframes sparkle-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
